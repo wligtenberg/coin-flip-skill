@@ -1,14 +1,12 @@
-# Coin flip skill
+## coin flip
+This skill flips a virtual coin
 
-This skill flips a virtual coin and informs the user of the result
+## Description 
+Flip a virtual coin by saying "hey Mycroft, flip a coin".
+It will then randomly choose between heads and tails.
 
-To get this done we need
-  - This
-  - That
-  - The other thing
+## Examples 
+* "flip a coin"
 
-
-## Current state
-
-Working features:
- - Flipping a coin
+## Credits 
+Willem Ligtenberg <willem@wligtenberg.nl> @wligtenberg
