@@ -13,11 +13,12 @@
 # You should have received a copy of the GNU General Public License
 # along with Mycroft Core.  If not, see <http://www.gnu.org/licenses/>.
 
-from os.path import dirname
+from os.path import dirname, join
 
 from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill
 from mycroft.util.log import getLogger
+from mycroft.util import play_mp3
 
 import random
 
@@ -52,10 +53,13 @@ class CoinFlipSkill(MycroftSkill):
     # of a file in the dialog folder, and Mycroft speaks its contents when
     # the method is called.
     def handle_coin_flip_intent(self, message):
-        self.speak_dialog("flip.coin")
+        #self.speak_dialog("flip.coin")
+        self.process = play_mp3(join(dirname(__file__), "mp3", "coin-flip.mp3"))
         if bool(random.getrandbits(1)):
+            self.process.wait()
             self.speak_dialog("heads")
         else:
+            self.process.wait()
             self.speak_dialog("tails")
 
     # The "stop" method defines what Mycroft does when told to stop during
